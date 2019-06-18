@@ -1,6 +1,8 @@
 "
 Bits of playground script
 
+""Capture the execution comand running the test and put them in chest before running the following, or you'll lock your image""""
+
 dbg1 := ScriptableDebugger debug: [ (Chest at: 1) executeCommand ].
 dbg2 := ScriptableDebugger debug: [ (Chest at: 2) executeCommand ].
 dbg1 stepUntil: [ dbg1 method == (ScriptableDebuggerTests_Bug >>#testStep)].
