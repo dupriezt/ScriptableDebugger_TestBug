@@ -1,12 +1,6 @@
 "
 Bits of playground script
 
-dbg := ScriptableDebugger debug: [ (Chest at: 1) executeCommand ].
-dbg stepUntil: [ dbg method == (ScriptableDebuggerTests_Bug >>#testStep)].
-dbg stepUntil: [(dbg receiver isKindOf: ScriptableDebugger) and: [[dbg receiver selector = #on:do:] on: MessageNotUnderstood do: [false]]].
-dbg currentNode.
-
-
 dbg1 := ScriptableDebugger debug: [ (Chest at: 1) executeCommand ].
 dbg2 := ScriptableDebugger debug: [ (Chest at: 2) executeCommand ].
 dbg1 stepUntil: [ dbg1 method == (ScriptableDebuggerTests_Bug >>#testStep)].
