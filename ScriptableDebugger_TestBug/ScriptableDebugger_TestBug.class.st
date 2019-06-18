@@ -3,10 +3,12 @@ Bits of playground script
 
 ""Capture the execution comand running the test and put them in chest before running the following, or you'll lock your image""""
 
+(Chest at: 1) executeCommand.
+(Chest at: 2) executeCommand.
 dbg1 := ScriptableDebugger debug: [ (Chest at: 1) executeCommand ].
 dbg2 := ScriptableDebugger debug: [ (Chest at: 2) executeCommand ].
-dbg1 stepUntil: [ dbg1 method == (ScriptableDebuggerTests_Bug >>#testStep)].
-dbg2 stepUntil: [ dbg2 method == (ScriptableDebuggerTests_Bug >>#testStep)].
+dbg1 stepUntil: [ dbg1 method == (ScriptableDebugger_TestBug >>#testStep)].
+dbg2 stepUntil: [ dbg2 method == (ScriptableDebugger_TestBug >>#testStep)].
 [ dbg1 currentNode == dbg2 currentNode ] whileTrue: [ dbg1 step. dbg2 step. ]. dbg1 method. dbg2 method.
 p1 := (dbg1 temporaries at: #aProcess).
 p2 := (dbg2 temporaries at: #aProcess).
@@ -15,12 +17,11 @@ dbg1 currentNode. dbg2 currentNode.
 (p1 suspendedContext sourceNodeExecuted). (p2 suspendedContext sourceNodeExecuted).
 [ p1 suspendedContext selector = #on:do: ] whileFalse: [ dbg1 step ].
 dbg1 stack. dbg1 currentNode. p1 suspendedContext sourceNodeExecuted.
-dbg1 stepUntil: [ dbg1 method == (ScriptableDebuggerTests_Bug >>#testStep)]. dbg1 currentNode.
+dbg1 stepUntil: [ dbg1 method == (ScriptableDebugger_TestBug >>#testStep)]. dbg1 currentNode.
 p1 suspendedContext sourceNodeExecuted.
 [p1 suspendedContext selector = #testStep] whileFalse: [ p1 step ].
 p1 suspendedContext sourceNodeExecuted.
 p1 suspendedContext stack.
-
 "
 Class {
 	#name : #'ScriptableDebugger_TestBug',
