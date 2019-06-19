@@ -1,6 +1,7 @@
 # ScriptableDebugger_TestBug
 
 ## Install
+Pharo version: clone branch *BugFreeze_TestPassesAndFails* of repo https://github.com/dupriezt/pharo
 ```Smalltalk
 Metacello new
     baseline: 'ScriptableDebugger_TestBug';
