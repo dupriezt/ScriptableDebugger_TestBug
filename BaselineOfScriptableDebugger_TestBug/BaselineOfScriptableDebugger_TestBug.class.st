@@ -12,6 +12,9 @@ BaselineOfScriptableDebugger_TestBug >> baseline: spec [
 		do: [		
 			"Dependency"
 			spec
+				baseline: 'Pharo'
+				with: [ spec repository: 'github://dupriezt/pharo:BugFreeze_TestPassesAndFails' ].
+			spec
 				baseline: 'ScriptableDebugger'
 				with: [ spec repository: 'github://dupriezt/ScriptableDebugger' ].
 			spec
